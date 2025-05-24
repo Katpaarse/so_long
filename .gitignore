@@ -1,0 +1,9 @@
+MLX42/build/
+
+*.o
+
+so_long
+
+*~
+*.swp
+.DS_Store
