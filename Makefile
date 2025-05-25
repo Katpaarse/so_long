@@ -1,9 +1,9 @@
 NAME = so_long
-SRCS = src/main.c src/game.c src/map.c
+SRCS = src/main.c src/parsing/parse_map.c src/parsing/validate_map.c src/utils.c src/parsing/flood_fill.c src/game_intializer.c
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I./MLX42/include -I./src/libft/include -I./include
+CFLAGS = -Wall -Wextra -Werror -I./MLX42/include -I./src/libft -I./include
 LDFLAGS = -LMLX42/build -lmlx42 -lglfw -ldl -lm -lpthread -Lsrc/libft -lft
 
 MLX_DIR = MLX42
