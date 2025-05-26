@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 17:46:26 by jukerste          #+#    #+#             */
-/*   Updated: 2025/05/25 13:29:54 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/05/26 16:24:00 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	**read_map(int fd, int size)
 		map[i] = get_next_line(fd);
 		if (map[i] == NULL)
 		{
-			while (i >= 0)
+			while (i > 0)
 			{
 				i--;
 				free(map[i]);
@@ -51,5 +51,24 @@ char	**read_map(int fd, int size)
 		i++;
 	}
 	map[size] = NULL;
+	return (map);
+}
+
+char	**parse_map(const char *filename)
+{
+	int		fd;
+	int		count_lines;
+	char	**map;
+	
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		return (NULL);
+	count_lines = count_lines_map(fd);
+	close(fd);
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		return (NULL);
+	map = read_map(fd, count_lines);
+	close(fd);
 	return (map);
 }

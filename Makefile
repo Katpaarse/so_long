@@ -1,5 +1,5 @@
 NAME = so_long
-SRCS = src/main.c src/parsing/parse_map.c src/parsing/validate_map.c src/utils.c src/parsing/flood_fill.c src/game_intializer.c
+SRCS = src/main.c src/parsing/parse_map.c src/parsing/validate_map.c src/utils.c src/parsing/flood_fill.c src/game_intializer.c src/render/load_images.c src/render/render_map.c
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc
