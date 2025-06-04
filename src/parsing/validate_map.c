@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 16:32:33 by jukerste          #+#    #+#             */
-/*   Updated: 2025/05/26 16:32:42 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/05/29 15:17:15 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ static int	map_elements(char **map)
 	c = 0;
 	e = 0;
 	y = 0;
-	
 	while (map[y])
 	{
 		x = 0;

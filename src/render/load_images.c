@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 14:37:46 by jukerste          #+#    #+#             */
-/*   Updated: 2025/05/26 16:54:34 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/04 19:13:36 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ void	load_images(t_game *game)
 	texture = mlx_load_png("src/assets/Wall.png");
 	game->img_wall = mlx_texture_to_image(game->mlx, texture);
 	mlx_delete_texture(texture);
-	texture = mlx_load_png("src/assets/Wall_side.png");
-	game->img_side_wall = mlx_texture_to_image(game->mlx, texture);
+	texture = mlx_load_png("src/assets/Wall_side_right.png");
+	game->img_side_wall_right = mlx_texture_to_image(game->mlx, texture);
+	texture = mlx_load_png("src/assets/Wall_side_left.png");
+	game->img_side_wall_left = mlx_texture_to_image(game->mlx, texture);
 	mlx_delete_texture(texture);
 	texture = mlx_load_png("src/assets/Floor.png");
 	game->img_floor = mlx_texture_to_image(game->mlx, texture);
