@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 15:12:23 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/04 20:23:41 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/06 16:12:05 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	move_player(t_game *game, int dy, int dx)
             game->map[game->player_y][game->player_x] = '0';
             game->player_x = new_x;
             game->player_y = new_y;
-            ft_printf("You win the game!\n");
+            game->has_won = 1;
             mlx_close_window(game->mlx);
             return ;
         }
@@ -61,7 +61,7 @@ void	key_handler(mlx_key_data_t keydata, void *param)
 	if (keydata.action != MLX_PRESS)
 		return ;
 	if (keydata.key == MLX_KEY_ESCAPE)
-		mlx_close_window(game->mlx);
+        mlx_close_window(game->mlx);
 	else if (keydata.key == MLX_KEY_W)
 		move_player(game, -1, 0);
 	else if (keydata.key == MLX_KEY_A)

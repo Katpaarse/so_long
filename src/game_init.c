@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 18:07:04 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/04 19:54:37 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/06 16:11:41 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	game_init(t_game *game)
 {
+	game->has_won = 0;
 	game->coins_collected = 0;
 	game->total_coins = 0;
 	game->move_count = 0;

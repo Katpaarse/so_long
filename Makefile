@@ -4,7 +4,7 @@ src/render/load_images.c src/render/render_map.c src/key_handler.c
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I./MLX42/include -I./src/libft -I./include
+CFLAGS = -Wall -Wextra -Werror -I./MLX42/include -I./src/libft -I./include -g
 LDFLAGS = -LMLX42/build -lmlx42 -lglfw -ldl -lm -lpthread -Lsrc/libft -lft
 
 MLX_DIR = MLX42

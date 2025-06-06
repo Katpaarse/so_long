@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:00:59 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/04 18:28:56 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/06 16:09:34 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_game
 	int			move_count;
 	int			coins_collected;
 	int			total_coins;
+	int			has_won;
 }	t_game;
 
 int		count_lines_map(int fd);
