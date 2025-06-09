@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 18:07:04 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/09 15:04:01 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/09 20:24:00 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	game_init(t_game *game)
 	game->map_height = 0;
 	while (game->map[game->map_height])
 		game->map_height++;
-	game->mlx = mlx_init(game->map_width * TILE_SIZE, game->map_height * TILE_SIZE, "so_long", true);
+	game->mlx = mlx_init(game->map_width * TILE_SIZE,
+			game->map_height * TILE_SIZE, "so_long", true);
 	if (game->mlx == NULL)
 		error_exit("MLX42 initialization failed");
 	count_coins(game);
@@ -39,7 +40,7 @@ void	count_coins(t_game *game)
 	while (game->map[y])
 	{
 		x = 0;
-		while(game->map[y][x])
+		while (game->map[y][x])
 		{
 			if (game->map[y][x] == 'C')
 				count++;

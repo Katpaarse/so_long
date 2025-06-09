@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:26:54 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/09 19:55:32 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/09 21:21:17 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,7 @@ static void	flood_fill(char **map, int y, int x)
 	flood_fill(map, y, x - 1);
 }
 
-
-int	valid_flood_fill(char **map)
+int	path_is_valid(char **map)
 {
 	int		x;
 	int		y;

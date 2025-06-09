@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:00:59 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/09 16:06:44 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/09 21:43:23 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "MLX42/MLX42.h"
 
 # ifndef TILE_SIZE
-#define  TILE_SIZE 128
+#  define TILE_SIZE 128
 # endif
 
 typedef struct s_game
@@ -31,9 +31,8 @@ typedef struct s_game
 	int			y;
 	mlx_t		*mlx;
 	mlx_image_t	*img_wall;
-	mlx_image_t	*img_side_wall_right;
-	mlx_image_t	*img_side_wall_left;
 	mlx_image_t	*img_side_wall;
+	mlx_image_t	*img_mid_wall;
 	mlx_image_t	*img_floor;
 	mlx_image_t	*img_player;
 	mlx_image_t	*img_exit;
@@ -51,7 +50,7 @@ typedef struct s_game
 int		count_lines_map(int fd);
 char	**read_map(int fd, int size);
 void	validate_map(char **map);
-int		valid_flood_fill(char **map);
+int		path_is_valid(char **map);
 void	error_exit(char *msg);
 void	free_map(char **map);
 void	game_init(t_game *game);

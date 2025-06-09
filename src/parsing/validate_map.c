@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 16:32:33 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/09 19:23:43 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/09 20:36:48 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static int	map_elements(char **map)
 	int	p;
 	int	e;
 	int	c;
-	
+
 	p = 0;
 	c = 0;
 	e = 0;
@@ -100,6 +100,6 @@ void	validate_map(char **map)
 		error_exit("Map does not have valid walls");
 	if (!map_elements(map))
 		error_exit("Map must contain 1 P, 1 E and at least 1 C");
-	if (!valid_flood_fill(map))
+	if (!path_is_valid(map))
 		error_exit("Not all collectables or exit are reachable");
 }

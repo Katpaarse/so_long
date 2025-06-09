@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 14:37:46 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/09 16:08:19 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/09 21:52:19 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,15 @@ void	load_images(t_game *game)
 
 void	load_wall_images(t_game *game)
 {
-	mlx_texture_t *texture;
+	mlx_texture_t	*texture;
 
 	texture = mlx_load_png("src/assets/Wall.png");
 	game->img_wall = mlx_texture_to_image(game->mlx, texture);
 	mlx_delete_texture(texture);
-	texture = mlx_load_png("src/assets/Wall_side_right.png");
-	game->img_side_wall_right = mlx_texture_to_image(game->mlx, texture);
-	mlx_delete_texture(texture);
-	texture = mlx_load_png("src/assets/Wall_side_left.png");
-	game->img_side_wall_left = mlx_texture_to_image(game->mlx, texture);
-	mlx_delete_texture(texture);
 	texture = mlx_load_png("src/assets/Wall_side.png");
 	game->img_side_wall = mlx_texture_to_image(game->mlx, texture);
+	mlx_delete_texture(texture);
+	texture = mlx_load_png("src/assets/Wall_mid.png");
+	game->img_mid_wall = mlx_texture_to_image(game->mlx, texture);
 	mlx_delete_texture(texture);
 }
