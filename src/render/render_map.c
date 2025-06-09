@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 15:47:35 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/04 20:29:03 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/09 16:08:51 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	render_tile(t_game *game, char tile, int y, int x)
 		else if (x == game->map_width - 1)
 			mlx_image_to_window(game->mlx, game->img_side_wall_right, x * TILE_SIZE, y * TILE_SIZE);
 		else
-			mlx_image_to_window(game->mlx, game->img_wall, x * TILE_SIZE, y * TILE_SIZE);
+			mlx_image_to_window(game->mlx, game->img_side_wall, x * TILE_SIZE, y * TILE_SIZE);
 	}
 	if (tile == 'C')
 		mlx_image_to_window(game->mlx, game->img_collectible, x * TILE_SIZE, y * TILE_SIZE);

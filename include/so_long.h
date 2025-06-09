@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kat <kat@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:00:59 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/08 16:35:14 by kat              ###   ########.fr       */
+/*   Updated: 2025/06/09 16:06:44 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_game
 	mlx_image_t	*img_wall;
 	mlx_image_t	*img_side_wall_right;
 	mlx_image_t	*img_side_wall_left;
+	mlx_image_t	*img_side_wall;
 	mlx_image_t	*img_floor;
 	mlx_image_t	*img_player;
 	mlx_image_t	*img_exit;
@@ -57,6 +58,7 @@ void	game_init(t_game *game);
 void	count_coins(t_game *game);
 void	render_map(t_game *game);
 void	load_images(t_game *game);
+void	load_wall_images(t_game *game);
 char	**parse_map(const char *filename);
 void	move_player(t_game *game, int dx, int dy);
 void	key_handler(mlx_key_data_t keydata, void *param);

@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 16:32:33 by jukerste          #+#    #+#             */
-/*   Updated: 2025/05/29 15:17:15 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/09 19:23:43 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,11 @@ static int	map_has_valid_walls(char **map)
 	return (1);
 }
 
-static int	map_elements(char **map)
+static void	count_elements(char **map, int *p, int *e, int *c)
 {
 	int	x;
 	int	y;
-	int	p;
-	int	e;
-	int	c;
-	
-	p = 0;
-	c = 0;
-	e = 0;
+
 	y = 0;
 	while (map[y])
 	{
@@ -74,15 +68,27 @@ static int	map_elements(char **map)
 		while (map[y][x])
 		{
 			if (map[y][x] == 'P')
-				p++;
+				(*p)++;
 			else if (map[y][x] == 'E')
-				e++;
+				(*e)++;
 			else if (map[y][x] == 'C')
-				c++;
+				(*c)++;
 			x++;
 		}
 		y++;
 	}
+}
+
+static int	map_elements(char **map)
+{
+	int	p;
+	int	e;
+	int	c;
+	
+	p = 0;
+	c = 0;
+	e = 0;
+	count_elements(map, &p, &e, &c);
 	return (p == 1 && e == 1 && c >= 1);
 }
 

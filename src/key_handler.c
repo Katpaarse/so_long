@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kat <kat@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 15:12:23 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/08 16:41:55 by kat              ###   ########.fr       */
+/*   Updated: 2025/06/09 19:17:47 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,11 @@ void	move_player(t_game *game, int dy, int dx)
     if (game->map[new_y][new_x] == '1')
         return ;
     if (game->map[new_y][new_x] == 'C')
-		handle_coins(game, new_y, new_x);
+        handle_coins(game, new_y, new_x);
     if (game->map[new_y][new_x] == 'E')
     {
         if (game->coins_collected == game->total_coins)
         {
-			update_position(game, new_x, new_y);
             game->has_won = 1;
             mlx_close_window(game->mlx);
             return ;
@@ -54,6 +53,7 @@ void	move_player(t_game *game, int dy, int dx)
         else
             return ;
     }
+    update_position(game, new_x, new_y);
 }
 
 void	key_handler(mlx_key_data_t keydata, void *param)
