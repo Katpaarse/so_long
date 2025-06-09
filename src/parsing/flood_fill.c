@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kat <kat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:26:54 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/09 21:21:17 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/09 23:01:24 by kat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,11 @@ static void	flood_fill(char **map, int y, int x)
 {
 	if (map[y][x] == '1' || map[y][x] == 'V')
 		return ;
+	if (map[y][x] == 'E')
+	{
+		map[y][x] = 'V';
+		return ;
+	}
 	map[y][x] = 'V';
 	flood_fill(map, y + 1, x);
 	flood_fill(map, y - 1, x);
