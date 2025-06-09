@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:15:12 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/06 16:13:07 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/09 19:58:03 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
     mlx_key_hook(game.mlx, &key_handler, &game);
     mlx_loop(game.mlx);
     if (game.has_won)
-        ft_printf("Winner winner chicken dinner\n");
+        ft_printf("The ghost found it's way home!\n");
     free_map(game.map);
     mlx_terminate(game.mlx);
     return (0);
