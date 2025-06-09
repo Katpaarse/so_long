@@ -3,14 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   key_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kat <kat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 15:12:23 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/06 16:12:05 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/08 16:41:55 by kat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static void	update_position(t_game *game, int new_x, int new_y)
+{
+	mlx_image_to_window(game->mlx, game->img_floor, game->player_x * TILE_SIZE, game->player_y * TILE_SIZE);
+    mlx_image_to_window(game->mlx, game->img_player, new_x * TILE_SIZE, new_y * TILE_SIZE);
+    game->map[game->player_y][game->player_x] = '0';
+    if (game->map[new_y][new_x] != 'E')
+        game->map[new_y][new_x] = 'P';
+    game->player_x = new_x;
+    game->player_y = new_y;
+    game->move_count++;
+    ft_printf("Moves: %d\n", game->move_count);
+}
+
+static void handle_coins(t_game *game, int y, int x)
+{
+	game->coins_collected++;
+    game->map[y][x] = '0';
+}
 
 void	move_player(t_game *game, int dy, int dx)
 {
@@ -22,19 +41,12 @@ void	move_player(t_game *game, int dy, int dx)
     if (game->map[new_y][new_x] == '1')
         return ;
     if (game->map[new_y][new_x] == 'C')
-    {
-        game->coins_collected++;
-        game->map[new_y][new_x] = '0';
-    }
+		handle_coins(game, new_y, new_x);
     if (game->map[new_y][new_x] == 'E')
     {
         if (game->coins_collected == game->total_coins)
         {
-            mlx_image_to_window(game->mlx, game->img_floor, game->player_x * TILE_SIZE, game->player_y * TILE_SIZE);
-            mlx_image_to_window(game->mlx, game->img_player, new_x * TILE_SIZE, new_y * TILE_SIZE);
-            game->map[game->player_y][game->player_x] = '0';
-            game->player_x = new_x;
-            game->player_y = new_y;
+			update_position(game, new_x, new_y);
             game->has_won = 1;
             mlx_close_window(game->mlx);
             return ;
@@ -42,15 +54,6 @@ void	move_player(t_game *game, int dy, int dx)
         else
             return ;
     }
-    mlx_image_to_window(game->mlx, game->img_floor, game->player_x * TILE_SIZE, game->player_y * TILE_SIZE);
-    mlx_image_to_window(game->mlx, game->img_player, new_x * TILE_SIZE, new_y * TILE_SIZE);
-    game->map[game->player_y][game->player_x] = '0';
-    if (game->map[new_y][new_x] != 'E')
-        game->map[new_y][new_x] = 'P';
-    game->player_x = new_x;
-    game->player_y = new_y;
-    game->move_count++;
-    ft_printf("Moves: %d\n", game->move_count);
 }
 
 void	key_handler(mlx_key_data_t keydata, void *param)
