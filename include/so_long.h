@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:00:59 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/09 21:43:23 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:50:25 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int		count_lines_map(int fd);
 char	**read_map(int fd, int size);
 void	validate_map(char **map);
 int		path_is_valid(char **map);
+int		check_valid_characters(char valid);
+void	map_has_valid_characters(char **map);
 void	error_exit(char *msg);
 void	free_map(char **map);
 void	game_init(t_game *game);

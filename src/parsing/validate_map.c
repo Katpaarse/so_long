@@ -6,7 +6,7 @@
 /*   By: jukerste <jukerste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 16:32:33 by jukerste          #+#    #+#             */
-/*   Updated: 2025/06/09 20:36:48 by jukerste         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:48:12 by jukerste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ static int	map_elements(char **map)
 
 void	validate_map(char **map)
 {
+	map_has_valid_characters(map);
 	if (!map_is_rectangle(map))
 		error_exit("Map is not a rectangle");
 	if (!map_has_valid_walls(map))
